@@ -1,5 +1,126 @@
-body{
-
-
-background-color:beige
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  text-align: center;
+}
+
+li,
+a,
+button {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  /*push left and right items to far edges, middle items evenly spaced in between the two*/
+  justify-content: space-between;
+  align-items: center;
+  /* 30 px top and bottom, 10% on the sides*/
+  padding: 20px 10%;
+  background-color: #262626;
+  width: 100%;
+  z-index: 12;
+  position: fixed;
+}
+
+.logo {
+  cursor: pointer;
+  width: 100px,
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 4px;
+  font-size: 20px;
+  margin: 0 10px;
+  color: #fff;
+}
+
+.nav_links li a:hover {
+  color: #00a933
+}
+
+button {
+  padding: 9px 25px;
+  /*use rgba because it has opacity*/
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: rgba(0, 136, 169, 0.81);
+}
+
+.banner-area {
+  width: 100%;
+  height: 500px;
+  position: fixed;
+  top: 50px;
+  background-image: url(./images/cloud.jpg);
+  background-size: cover;
+  background-position:top 
+
+
+}
+
+.banner-area h2 {
+  padding-top: 8%;
+  font-size: 70px;
+  font-family: fantasy;
+  text-transform: uppercase;
+  color: blanchedalmond;
+}
+
+.content-area {
+  width: 100%;
+  position: relative;
+  top: 450px;
+  background: rgb(102, 154, 218);
+  height: 1500px;
+
+
+}
+
+.content-area h2 {
+  font-family: fantasy;
+  letter-spacing: 4px;
+  padding-top: 30px;
+  font-size: 40px;
+  margin: 0;
+}
+
+.content-area p {
+  padding: 2% 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 30px;
+
+}
+
+.next-area {
+  background-color: coral;
+  margin-top: 20px;
+}
+
+/* https://www.youtube.com/watch?v=PwWHL3RyQgk&ab_channel=Skillthrivehttps://www.youtube.com/watch?v=BkbkUtrLkls&ab_channel=Divinector */
+

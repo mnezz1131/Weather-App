@@ -1,0 +1,108 @@
+1. Got the API working with fetch request
+const locale = "London"
+const ApiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${locale}&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+const url = "api endpoint"
+fetch(url)
+    .then((res) => { return res.json() })
+    .then((resJSON) => {
+      console.log(resJSON);   
+    })
+    .catch((err) => {
+      // check if they spelled the country wrong?
+      console.error(`ERROR: ${err}`)
+    });
+
+2. Created a Function to call fetch -  did not name input parameter at this time
+
+    const fetchWeather = () => {
+
+    fetch(ApiUrl)
+        .then((res) => { return res.json() })
+        .then((resJSON) => {
+
+          console.log(resJSON);
+          const locDiv = document.createElement("DIV")
+          document.querySelector(".main").appendChild(locDiv).classList.add("location")
+      
+        })
+        .catch((err) => {
+          // check if they spelled the country wrong?
+          console.error(`ERROR: ${err}`)
+        });
+    }
+    fetchWeather();
+
+3. Added eventListener to button
+
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", (evObj) => {
+        evObj.preventDefault();
+        console.log("clicked yo")
+        const dataInput = document.querySelector("#LctnInpt").value
+        console.log(`My data Input = ${dataInput}`)
+      })
+
+4.  PAY ATTENTION TO THIS STEP
+      -Move calling the function fetchWeather into the button.eventListener
+      and add dataInput and the input parameter
+      -Add dataInput parameter to call fetchWeather(dataInput)
+      -Move   const ApiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${dataInput}&appid=b0ae55b6c429d2b3beee108ecdbd660e` into the fetchWeather function so it will in the right scope
+      const fetchWeather = (dataInput) => {
+      const ApiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${dataInput}&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+
+        fetch(ApiUrl)
+          .then((res) => {
+            return res.json()
+          })
+          .then((resJSON) => {
+
+            console.log(resJSON);
+        
+
+          })
+          .catch((err) => {
+            // check if they spelled the country wrong?
+            console.error(`ERROR: ${err}`)
+          });
+      }
+
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", (evObj) => {
+        evObj.preventDefault();
+        console.log("clicked yo")
+        const dataInput = document.querySelector("#LctnInpt").value
+        console.log(`My data Input = ${dataInput}`)
+        fetchWeather(dataInput);
+      })
+
+5.   Build a renderedList of Items  
+     Write a new fucntion renderedList 
+    const renderList = (resJSON) => {
+      This will get call in the second then
+    }
+
+
+
+
+
+
+
+
+//console reJson to make sure input is still working
+  // console.log(resJSON)
+  // console.log(resJSON.name)
+ // console.log(searchResults)
+
+  // console.log(searchResults.weather[0])
+  // console.log(searchResults.weather[0].main) //returns clouds
+  // console.log(searchResults.weather[0].description) // returns broken clouds
+
+    // console.log(searchResults.main.temp)
+    // console.log(searchResults.main.feels_like) //Temp is in Kelvin
+    // console.log(searchResults.main.temp_min)
+    // console.log(searchResults.main.temp_max)
+    // console.log(`Main Temp ${mainTemp}K, Feels like ${feelsLike}K, Temp Max ${tempMax}, Temp Min${tempMin} `)
+    // console.log(Math.round(mainTemp - 273.15), Math.round(feelsLike - 273.15), Math.round(tempMin - 273.15), Math.round(tempMax - 273.15))
+    // console.log(Math.round((mainTemp - 273.15)*9/5)+32, Math.round((feelsLike - 273.15)*9/5)+32, Math.round((tempMin - 273.15)*9/5)+32, Math.round((tempMax - 273.15)*9/5)+32)
