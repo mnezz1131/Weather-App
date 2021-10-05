@@ -13,7 +13,9 @@ const fetchWeather = (dataInput) => {
     })
     .then((resJSON) => {
       // console.log(resJSON);
+
       renderList(resJSON)
+      getCoord(resJSON)
 
     })
     .catch((err) => {
@@ -22,87 +24,82 @@ const fetchWeather = (dataInput) => {
     });
 }
 
+// const getCoord = (resJSON) => {
+//   console.log(resJSON.coord.lat)
+//   console.log(resJSON.coord.lon)
+// }
+
+
 const renderList = (resJSON) => {
-    let searchResults = resJSON;
-    //Selecting location class adding Location and country
-    const locationDiv = document.querySelector(".location");
-    //empties the div for next search
-    locationDiv.innerHTML = "";
+  let searchResults = resJSON;
+  console.log(searchResults)
+  //Selecting location class adding Location and country
+  const locationDiv = document.querySelector(".location");
+  //empties the div for next search
+  locationDiv.innerHTML = "";
 
-    const nameTag = document.createElement("p")
-    const countryTag = document.createElement("p")
+  const nameTag = document.createElement("p")
+  nameTag.innerText = `${searchResults.name}, ${searchResults.sys.country}`
+  const clouds = document.createElement("p")
+  clouds.innerText = `Clouds: ${searchResults.weather[0].description}`
+  const otherTag = document.createElement("p")
+  otherTag.innerText = `Humidity: ${searchResults.main.humidity}%, Pressure: ${searchResults.main.pressure / 100}`
 
-    nameTag.innerText = `${searchResults.name}, ${searchResults.sys.country}`
 
-    locationDiv.append(nameTag, countryTag)
-    //#################################################################################
+  locationDiv.append(nameTag)
+  locationDiv.appendChild(clouds)
+  locationDiv.appendChild(otherTag)
 
-    const tempTag = document.createElement('UL');
-    locationDiv.appendChild(tempTag)
+  //#################################################################################
 
-    const tempConvert = (resJSON) => {
+  const tempTag = document.createElement('UL');
+  locationDiv.appendChild(tempTag)
 
-        const mainTemp = searchResults.main.temp
-        const feelsLike = searchResults.main.feels_like
-        const tempMin = searchResults.main.temp_min
-        const tempMax = searchResults.main.temp_max
+  const tempConvert = (resJSON) => {
 
-        const tempArr = [mainTemp, feelsLike, tempMin, tempMax]
+    const mainTemp = searchResults.main.temp
+    const feelsLike = searchResults.main.feels_like
+    const tempMin = searchResults.main.temp_min
+    const tempMax = searchResults.main.temp_max
 
-        for (let i = 0; i < tempArr.length; i++) {
-          const kelvin = `${Math.round(tempArr[i])}\u00B0K`
-          const celsius = `${Math.round(tempArr[i] - 273.15)}\u00B0C`
-          const faren = `${Math.round((tempArr[i] - 273.15) * 9 / 5) + 32}\u00B0F`
-        
-          const tempElem = document.createElement("li")
-          if(i===0){
-            tempElem.innerText = `Main Temp: ${faren}, ${celsius}, ${kelvin}`
-          } else if (i===1) {
-            tempElem.innerText = `Feels Like: ${faren}, ${celsius}, ${kelvin}`
-          } else if (i===2) {
-            tempElem.innerText = `Temp Min: ${faren}, ${celsius}, ${kelvin}`
-          } else if (i === 3) {
-            tempElem.innerText = `Temp Max: ${faren}, ${celsius}, ${kelvin}`
-          }
+    const tempArr = [mainTemp, feelsLike, tempMin, tempMax]
+
+    for (let i = 0; i < tempArr.length; i++) {
+      const kelvin = `${Math.round(tempArr[i])}\u00B0K`
+      const celsius = `${Math.round(tempArr[i] - 273.15)}\u00B0C`
+      const faren = `${Math.round((tempArr[i] - 273.15) * 9 / 5) + 32}\u00B0F`
+
+      const tempElem = document.createElement("li")
+      if (i === 0) {
+        tempElem.innerText = `Main Temp: ${faren},  ${celsius},  ${kelvin}`
+      } else if (i === 1) {
+        tempElem.innerText = `Feels Like: ${faren},  ${celsius},  ${kelvin}`
+      } else if (i === 2) {
+        tempElem.innerText = `Temp Low: ${faren},  ${celsius},  ${kelvin}`
+      } else if (i === 3) {
+        tempElem.innerText = `Temp High: ${faren},  ${celsius},  ${kelvin}`
+      }
       // tempElem.innerText = `${faren}, ${celsius}, ${kelvin}`
       tempTag.appendChild(tempElem)
     }
   }
   tempConvert()
-    //#################################################################################
-  const otherTag= document.createElement("p")
-  otherTag.innerText = `Humidity: ${searchResults.main.humidity}, Pressure: ${searchResults.main.pressure} `
-  locationDiv.appendChild(otherTag)
-  // console.log(searchResults.main.pressure) //Pressure in Pascal = need mb
-  // console.log(searchResults.main.humidity)
-  // console.log(searchResults.wind)
-  // console.log(searchResults.wind.speed)
-  // console.log(searchResults.wind.deg)
-  // console.log(searchResults.wind.gust)
 
-  
-  // console.log(searchResults.visibility)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const windTag = document.createElement('p');
+  locationDiv.appendChild(windTag)
+  windTag.innerText = `Wind Speed: ${searchResults.wind.speed}`
+  locationDiv.appendChild(windTag)
 
 }
 
+//********************************************************************************************* */
+
+const getCoord = (resJSON) => {
+  const lat =resJSON.coord.lat
+  const lon =resJSON.coord.lon
+  console.log(lat, lon)
+
+}
 
 const button = document.querySelector("button");
 
@@ -112,4 +109,7 @@ button.addEventListener("click", (evObj) => {
   const dataInput = document.querySelector("#LctnInpt").value
   console.log(`My data Input = ${dataInput}`)
   fetchWeather(dataInput);
+  
+
+
 })

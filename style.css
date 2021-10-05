@@ -2,14 +2,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 
 body {
   text-align: center;
+
 }
 
-li,
-a,
+
 button {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 500;
@@ -21,7 +22,7 @@ button {
 header {
   display: flex;
   /*push left and right items to far edges, middle items evenly spaced in between the two*/
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   /* 30 px top and bottom, 10% on the sides*/
   padding: 20px 10%;
@@ -59,6 +60,7 @@ header {
 }
 
 button {
+  margin-top: 10px;
   padding: 9px 25px;
   /*use rgba because it has opacity*/
   background-color: rgba(0, 136, 169, 1);
@@ -74,14 +76,16 @@ button:hover {
 
 .banner-area {
   width: 100%;
-  height: 500px;
+  height: 800px;
   position: fixed;
   top: 50px;
   background-image: url(./images/cloud.jpg);
   background-size: cover;
-  background-position:top 
+  background-position: top
+}
 
-
+h1 {
+  margin-bottom: 10px;
 }
 
 .banner-area h2 {
@@ -112,15 +116,24 @@ button:hover {
 
 .content-area p {
   padding: 2% 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
   line-height: 30px;
 
 }
 
-.next-area {
-  background-color: coral;
-  margin-top: 20px;
+.location {
+  background-color: ghostwhite;
+  width: 20%;
+  margin: 0 auto;
+margin-top:20px; 
+border-radius: 15%;
+}
+ul{
+ list-style-type: none;
+ padding-top: 10px;
+ padding-bottom: 5px;
+
 }
 
-/* https://www.youtube.com/watch?v=PwWHL3RyQgk&ab_channel=Skillthrivehttps://www.youtube.com/watch?v=BkbkUtrLkls&ab_channel=Divinector */
 
+/* https://www.youtube.com/watch?v=PwWHL3RyQgk&ab_channel=Skillthrivehttps://www.youtube.com/watch?v=BkbkUtrLkls&ab_channel=Divinector */
