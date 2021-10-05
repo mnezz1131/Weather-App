@@ -22,49 +22,57 @@ const fetchWeather = (dataInput) => {
     });
 }
 
-
 const renderList = (resJSON) => {
-  let searchResults = resJSON;
-  //create Div & add class location and append to main
-    // const otherDiv = document.querySelector(".other")
-  //Selecting location class adding Location and country
-  const locationDiv = document.querySelector(".location");
-  locationDiv.innerHTML = "";
+    let searchResults = resJSON;
+    //Selecting location class adding Location and country
+    const locationDiv = document.querySelector(".location");
+    //empties the div for next search
+    locationDiv.innerHTML = "";
 
-  const nameTag = document.createElement("p")
-  const countryTag = document.createElement("p")
+    const nameTag = document.createElement("p")
+    const countryTag = document.createElement("p")
 
-  nameTag.innerText = searchResults.name
-  countryTag.innerText = searchResults.sys.country
+    nameTag.innerText = `${searchResults.name}, ${searchResults.sys.country}`
 
-  locationDiv.append(nameTag, countryTag)
+    locationDiv.append(nameTag, countryTag)
+    //#################################################################################
 
-  const tempDiv = document.querySelector(".temp")
+    const tempTag = document.createElement('UL');
+    locationDiv.appendChild(tempTag)
 
+    const tempConvert = (resJSON) => {
 
+        const mainTemp = searchResults.main.temp
+        const feelsLike = searchResults.main.feels_like
+        const tempMin = searchResults.main.temp_min
+        const tempMax = searchResults.main.temp_max
 
-  const tempConvert = (resJSON) => {
-    const mainTemp = searchResults.main.temp
-    const feelsLike = searchResults.main.feels_like
-    const tempMin = searchResults.main.temp_min
-    const tempMax = searchResults.main.temp_max
+        const tempArr = [mainTemp, feelsLike, tempMin, tempMax]
 
-    const tempArr = [mainTemp, feelsLike, tempMin, tempMax]
-
-    for (let i = 0; i < tempArr.length; i++) {
-      const kelvin = Math.round(tempArr[i])
-      const celsius = Math.round(tempArr[i] - 273.15)
-      const faren = Math.round((tempArr[i] - 273.15) * 9 / 5) + 32
-      console.log(`kelvin ${kelvin}&#176`)
-      console.log(`celsius ${celsius}&#176`)
-      console.log(`farenheit ${faren}&#176`)
-      console.log(`kelvin - ${kelvin}`, `celsius - ${celsius}`, (`farenheit - ${faren}`))
+        for (let i = 0; i < tempArr.length; i++) {
+          const kelvin = `${Math.round(tempArr[i])}\u00B0K`
+          const celsius = `${Math.round(tempArr[i] - 273.15)}\u00B0C`
+          const faren = `${Math.round((tempArr[i] - 273.15) * 9 / 5) + 32}\u00B0F`
+        
+          const tempElem = document.createElement("li")
+          if(i===0){
+            tempElem.innerText = `Main Temp: ${faren}, ${celsius}, ${kelvin}`
+          } else if (i===1) {
+            tempElem.innerText = `Feels Like: ${faren}, ${celsius}, ${kelvin}`
+          } else if (i===2) {
+            tempElem.innerText = `Temp Min: ${faren}, ${celsius}, ${kelvin}`
+          } else if (i === 3) {
+            tempElem.innerText = `Temp Max: ${faren}, ${celsius}, ${kelvin}`
+          }
+      // tempElem.innerText = `${faren}, ${celsius}, ${kelvin}`
+      tempTag.appendChild(tempElem)
     }
-
   }
-
   tempConvert()
-
+    //#################################################################################
+  const otherTag= document.createElement("p")
+  otherTag.innerText = `Humidity: ${searchResults.main.humidity}, Pressure: ${searchResults.main.pressure} `
+  locationDiv.appendChild(otherTag)
   // console.log(searchResults.main.pressure) //Pressure in Pascal = need mb
   // console.log(searchResults.main.humidity)
   // console.log(searchResults.wind)
@@ -72,9 +80,7 @@ const renderList = (resJSON) => {
   // console.log(searchResults.wind.deg)
   // console.log(searchResults.wind.gust)
 
-  // console.log(searchResults.sys.sunset) //Need to convert timestamp
-  // console.log(searchResults.sys.sunrise) //Need to convert timestamp
-  // console.log(searchResults.timezone) //Need to convert timezone
+  
   // console.log(searchResults.visibility)
 
 
