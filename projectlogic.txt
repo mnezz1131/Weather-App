@@ -106,3 +106,43 @@ fetch(url)
     // console.log(`Main Temp ${mainTemp}K, Feels like ${feelsLike}K, Temp Max ${tempMax}, Temp Min${tempMin} `)
     // console.log(Math.round(mainTemp - 273.15), Math.round(feelsLike - 273.15), Math.round(tempMin - 273.15), Math.round(tempMax - 273.15))
     // console.log(Math.round((mainTemp - 273.15)*9/5)+32, Math.round((feelsLike - 273.15)*9/5)+32, Math.round((tempMin - 273.15)*9/5)+32, Math.round((tempMax - 273.15)*9/5)+32)
+
+
+
+
+    const forecastUL = document.createElement('UL')
+    forecastUL.classList.add("foreCastUl")
+    newForeCastDiv.appendChild(forecastUL)
+// if statement to get everything on the page
+// const foreCastElem = document.createElement("li")
+    // if (i == 0) {
+     
+    //   foreCastElem.innerHTML = ` Temp is ${dailySearch[i].temp.day}
+    //   Feels Like ${dailySearch[i].feels_like.day}`
+      
+    // } else if (i === 1) {
+    //   foreCastElem.innerText = "DAY2"
+    // } else if (i === 2) {
+    //   foreCastElem.innerText = "DAY3"
+    // } else if (i === 3) {
+    //   foreCastElem.innerText = "DAY4"
+    // } else if (i === 4) {
+    //   foreCastElem.innerText = "DAY5"
+    // } else if (i === 5) {
+    //   foreCastElem.innerText = "DAY6"
+    // } else if (i === 6) {
+    //   foreCastElem.innerText = "DAY7"
+    // } else if (i === 7) {
+    //   foreCastElem.innerText = "DAY8"
+    // }
+  
+    const foreCastElem = document.createElement("li")
+    foreCastElem.innerText=`Temp is ${dailySearch[i].temp.day}`
+    foreCastElem.innerText=`Temp is ${dailySearch[i].temp.day}`
+
+        const foreDayTag = document.createElement("p")
+    foreDayTag.innerText = `The Temp is ${dailySearch[i].temp.day}\u00B0F`
+    newForeCastDiv.appendChild(foreDayTag)
+    const foreFeelTag = document.createElement("p")
+    foreFeelTag.innerText = `Feels Like ${dailySearch[i].feels_like.day}\u00B0F`
+    newForeCastDiv.appendChild(foreFeelTag)
