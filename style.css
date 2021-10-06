@@ -7,12 +7,12 @@
 
 body {
   text-align: center;
-
+ 
 }
 
 
 button {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
@@ -48,9 +48,14 @@ header {
 
 .nav_links li a {
   transition: all 0.3s ease 0s;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Audiowide', cursive;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+font-size: 50px;
   letter-spacing: 4px;
-  font-size: 20px;
   margin: 0 10px;
   color: #fff;
 }
@@ -68,8 +73,12 @@ button {
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  font-family: 'Audiowide', cursive;
 }
-
+input{
+  font-size: 25px;
+  font-family: 'Audiowide', cursive;
+}
 button:hover {
   background-color: rgba(0, 136, 169, 0.81);
 }
@@ -86,6 +95,16 @@ button:hover {
 
 h1 {
   margin-bottom: 10px;
+  font-family: 'Audiowide', cursive;
+font-size: 40px;
+
+
+text-shadow:
+   -1px -1px 0 grey,
+    1px -1px 0 grey,
+    -1px 1px 0 grey,
+     1px 1px 0 grey;
+  
 }
 
 .banner-area h2 {
@@ -94,6 +113,10 @@ h1 {
   font-family: fantasy;
   text-transform: uppercase;
   color: blanchedalmond;
+}
+
+.main{
+  border-top: 5px solid black;
 }
 
 .content-area {
@@ -128,6 +151,7 @@ h1 {
 margin-top:20px; 
 border-radius: 15%;
 }
+
 ul{
  list-style-type: none;
  padding-top: 10px;

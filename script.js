@@ -24,10 +24,6 @@ const fetchWeather = (dataInput) => {
     });
 }
 
-// const getCoord = (resJSON) => {
-//   console.log(resJSON.coord.lat)
-//   console.log(resJSON.coord.lon)
-// }
 
 
 const renderList = (resJSON) => {
@@ -40,6 +36,9 @@ const renderList = (resJSON) => {
 
   const nameTag = document.createElement("p")
   nameTag.innerText = `${searchResults.name}, ${searchResults.sys.country}`
+  nameTag.style.backgroundColor = "gold"
+  nameTag.style.borderBlockStyle="solid"
+  // nameTag.style.borderRadiusRIght="55%"
   const clouds = document.createElement("p")
   clouds.innerText = `Clouds: ${searchResults.weather[0].description}`
   const otherTag = document.createElement("p")
@@ -84,22 +83,74 @@ const renderList = (resJSON) => {
     }
   }
   tempConvert()
-
   const windTag = document.createElement('p');
   locationDiv.appendChild(windTag)
   windTag.innerText = `Wind Speed: ${searchResults.wind.speed}`
   locationDiv.appendChild(windTag)
-
+  
 }
 
 //********************************************************************************************* */
 
 const getCoord = (resJSON) => {
-  const lat =resJSON.coord.lat
-  const lon =resJSON.coord.lon
-  console.log(lat, lon)
+  let lat = resJSON.coord.lat
+  let lon = resJSON.coord.lon
+  lat =Number(lat.toFixed(2).value)
+  lon= Number(lon.toFixed(2).value)
+
+  console.log(typeof lat, lat, typeof lon, lon)
+  
+  const fetchForecast = (lat, lon) => {
+    
+    // const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=59.91&lon=10.75&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+    console.log("making our request")
+  
+    fetch(forecastUrl)
+      .then((res) => {
+        return res.json()
+      })
+      .then((resJSON) => {
+        // console.log(resJSON);
+        renderDaily(resJSON)
+      })
+      .catch((err) => {
+  
+        console.error(`ERROR: ${err}`)
+      });
+  }
+  fetchForecast();
+}
+
+const renderDaily = (resJSON) => {
+  const dailySearch = resJSON.daily
+  console.log(dailySearch[7].dt)
+  
+  const unixTime = dailySearch[7].dt
+  const date = new Date(unixTime*1000);
+  console.log(date.toLocaleDateString("en-US"));
+  //https://www.codegrepper.com/code-examples/javascript/convert+date+to+unix+timestamp+javascript
+
+
+
+  for (i = 0; i < dailySearch.length; i++) {
+    console.log(dailySearch[i])
+  }
+
+
+
+
 
 }
+
+
+//************************************************************************************************ */
+
+
+
+
+
+//********************************************************************************************* */
 
 const button = document.querySelector("button");
 
@@ -109,7 +160,4 @@ button.addEventListener("click", (evObj) => {
   const dataInput = document.querySelector("#LctnInpt").value
   console.log(`My data Input = ${dataInput}`)
   fetchWeather(dataInput);
-  
-
-
 })
