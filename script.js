@@ -39,7 +39,7 @@ const renderList = (resJSON) => {
   locationDiv.appendChild(clouds)
   locationDiv.appendChild(otherTag)
 
-//#################################################################################
+  //#################################################################################
   const tempTag = document.createElement('UL');
   locationDiv.appendChild(tempTag)
 
@@ -77,7 +77,10 @@ const renderList = (resJSON) => {
   windTag.innerText = `Wind Speed: ${Math.round(searchResults.wind.speed*2.23694)} mph`
   locationDiv.appendChild(windTag)
 }
+
+
 // !################################################ WEEKLY FORECAST SECTION ################################################################################
+
 
 const getCoord = (resJSON) => {
   let lat = resJSON.coord.lat
@@ -97,8 +100,9 @@ const getCoord = (resJSON) => {
         return res.json()
       })
       .then((resJSON) => {
-       // console.log(resJSON);
+        // console.log(resJSON);
         renderDaily(resJSON)
+
       })
       .catch((err) => {
         console.error(`ERROR: ${err}`)
@@ -108,6 +112,9 @@ const getCoord = (resJSON) => {
 }
 
 const renderDaily = (resJSON) => {
+  const extendP = document.createElement("p")
+  extendP.innerText = `Extended ForeCast Yo`
+  document.querySelector(".forecast").appendChild(extendP)
   const dailySearch = resJSON.daily
   console.log(dailySearch[7].dt)
 
@@ -115,12 +122,6 @@ const renderDaily = (resJSON) => {
   // const date = new Date(unixTime*1000);
   // console.log(date.toLocaleDateString("en-US"));
   //https://www.codegrepper.com/code-examples/javascript/convert+date+to+unix+timestamp+javascript
-
-  
-  // const foreCastDiv = document.querySelector(".forecast");
-  // const forecastUL = document.createElement('UL')
-  // forecastUL.classList.add("foreCastUl")
-  // foreCastDiv.appendChild(forecastUL)
 
   for (i = 0; i < dailySearch.length; i++) {
     console.log(dailySearch[i])
@@ -136,29 +137,36 @@ const renderDaily = (resJSON) => {
     console.log(dailySearch[i].uvi)
     console.log(dailySearch[i].weather[0].main)
     console.log(dailySearch[i].weather[0].description)
-// ?Creating a DIV for each day in the weekly forecast
-    const foreCastDiv = document.querySelector(".forecast");
-    const newForeCastDiv = document.createElement("DIV")
-    newForeCastDiv.classList.add("newForeCastDiv")
-    foreCastDiv.appendChild(newForeCastDiv)
-    const forecastUL = document.createElement('UL')
-    forecastUL.classList.add("foreCastUl")
-    newForeCastDiv.appendChild(forecastUL)
     const day = new Date(dailySearch[i].dt * 1000).toLocaleDateString("en-us")
     const temp = dailySearch[i].temp.day
     const feels = dailySearch[i].feels_like.day
     const min = dailySearch[i].temp.min
     const max = dailySearch[i].temp.max
+    const clouds = dailySearch[i].clouds
+    const dew = dailySearch[i].dew_point
+    const humid = dailySearch[i].humidity
+    const main = dailySearch[i].weather[0].main
+    const desc = dailySearch[i].weather[0].description
+
+
+    // ?Creating a DIV for each day in the weekly forecast
+    const foreCastDiv = document.querySelector(".forecast");
+    const newForeCastDiv = document.createElement("DIV")
     
-        const foreCastElem = document.createElement("li")
-       
+    newForeCastDiv.classList.add("newForeCastDiv")
+    foreCastDiv.appendChild(newForeCastDiv)
 
+    const foreP = document.createElement("p")
+    foreP.innerText = `${day}`
+    newForeCastDiv.appendChild(foreP)
 
-
-    foreCastElem.innerText = `${temp}, ${feels}, ${min}, ${max} `
-
+    const forecastUL = document.createElement('UL')
+    forecastUL.classList.add("foreCastUl")
+    newForeCastDiv.appendChild(forecastUL)
+    const foreCastElem = document.createElement("li")
+    foreCastElem.innerText = `Temp is: ${temp},    Feels Like: ${feels},    Min: ${min},   Max: ${max} `
     forecastUL.appendChild(foreCastElem)
-    
+
   }
 
 
