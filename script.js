@@ -91,12 +91,16 @@ const foreCastDiv = document.querySelector(".forecast");
 const getCoord = (resJSON) => {
   let lat = resJSON.coord.lat
   let lon = resJSON.coord.lon
-  lat = Number(lat.toFixed(2).value)
-  lon = Number(lon.toFixed(2).value)
+  console.log(typeof lat, lat)
+  console.log(typeof lon, lon)
 
+  lat = lat.toFixed(2)
+  lon = lon.toFixed(2)
+  console.log(lat, lon)
   const fetchForecast = (lat, lon) => {
-
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=59.91&lon=10.75&units=imperial&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+    console.log(lat, lon)
+    // const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=59.91&lon=10.75&units=imperial&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
 
     foreCastDiv.innerHTML = ""; // Clearing the div close to the where the fetch is happening
 
@@ -111,7 +115,7 @@ const getCoord = (resJSON) => {
         console.error(`ERROR: ${err}`)
       });
   }
-  fetchForecast();
+  fetchForecast(lat, lon);
 }
 //Rendering the Extended Daily forecast
 const renderDaily = (resJSON) => {
