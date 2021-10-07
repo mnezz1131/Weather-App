@@ -265,7 +265,18 @@ html {
       -1px 1px 0 lightseagreen,
       1px 1px 0 lightseagreen;
   }
-
+  .newForeCastDiv {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    background-color: rgb(207, 221, 250);
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15%;
+    padding-bottom: 15px;
+  
+  }
 
 }
 
@@ -317,4 +328,21 @@ html {
   p {
     font-size: 16px;
   }
+
+  .newForeCastDiv {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    background-color: rgb(207, 221, 250);
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15%;
+    padding-bottom: 15px;
+  
+  }
+
+}
+
+
 }
