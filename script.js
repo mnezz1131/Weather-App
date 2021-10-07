@@ -84,7 +84,7 @@ const renderList = (resJSON) => {
 }
 
 
-// !################################################ WEEKLY FORECAST SECTION ################################################################################
+// ?################################################ WEEKLY FORECAST SECTION ################################################################################
 //Getting the City Longitude and Latitude from first fetch to  get the Extended Forecast 
 const foreCastDiv = document.querySelector(".forecast");
 
@@ -98,7 +98,7 @@ const getCoord = (resJSON) => {
 
     const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=59.91&lon=10.75&units=imperial&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
 
-    foreCastDiv.innerHTML = ""; // !Clearing the div close to the where the fetch is happening
+    foreCastDiv.innerHTML = ""; // Clearing the div close to the where the fetch is happening
 
     fetch(forecastUrl)
       .then((res) => {
@@ -126,7 +126,7 @@ const renderDaily = (resJSON) => {
   //Setting search results to a varialbe 
   const dailySearch = resJSON.daily
 
-  // ! Where i got the code for the date converion
+  // ! Code for the date converion was found here
   // const unixTime = dailySearch[7].dt
   // const date = new Date(unixTime*1000);
   // console.log(date.toLocaleDateString("en-US"));
@@ -193,8 +193,19 @@ const button = document.querySelector("button");
 
 button.addEventListener("click", (evObj) => {
   evObj.preventDefault();
-  console.log("clicked yo")
+ 
   const dataInput = document.querySelector("#LctnInpt").value
+
+//! Form Validation code was found here:
+//   https://www.freecodecamp.org/news/basic-form-validation-in-javascript/
+  
+  if (dataInput === "") {
+    alert("Please enter a City to search for!")
+    dataInput.focus();
+    return false
+}
+
+  
   console.log(`My data Input = ${dataInput}`)
   fetchWeather(dataInput);
 })
