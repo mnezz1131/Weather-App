@@ -1,10 +1,14 @@
-APP Title: Storm Watch Weather App
+APP Title: 
+Storm Watch Weather App
 
-APP Description:  Look Up Weather Conditions In Cities Across The Globe 
+APP Description:  
+Look Up Weather Conditions In Cities Across The Globe 
 
-API: Open Weather Map - https://openweathermap.org/api
+API: 
+Open Weather Map - https://openweathermap.org/api
 
-API SNIPPETT ```{
+API SNIPPETT 
+```{
     "coord": {
         "lon": -0.1257,
         "lat": 51.5085
@@ -52,7 +56,16 @@ API SNIPPETT ```{
 WIREFRAMES:
 ![image](https://user-images.githubusercontent.com/57691487/135868752-b974fb4c-5eed-495c-b74b-1a9c40b3f51f.png)
 
-MVP: HTML, CSS, JS, OPENWEATHER API - FETCH DATA AND INSERT INTO HTML
+MVP: 
+-Used the Open Weather Map API to fetch data and render HMTL
+-Built the site structure using Html
+-Fetched data and rendered Html structures using javascript
+-Styled the site using CSS
+-Incorporated flexbox
+-Added Media queries for Ipad and Iphone size devices
 
-POST MVP - UTILIZE ANOTHER API AND LOCAL STORAGE
+
+POST MVP:
+-Made another fetch to API using the data from first promise
+-Added animation to banner
 
