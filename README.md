@@ -1,5 +1,7 @@
-APP TITLE: # Weather-App
-APP DESCRIPTION: Simple weather app
+APP TITLE: Storm Watch Weather App
+
+App Description:  Look Up Weather Conditions In Cities Across The Globe 
+
 API SNIPPETT ```{
     "coord": {
         "lon": -0.1257,
