@@ -183,6 +183,9 @@ border-block-style: solid;
 
 }
 
+#weatherh2{
+  margin-bottom:15px;
+}
 h2{
   font-size:50px;
   font-family: 'Uncial Antiqua', cursive;

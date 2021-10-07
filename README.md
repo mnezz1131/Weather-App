@@ -1,6 +1,8 @@
-APP TITLE: Storm Watch Weather App
+APP Title: Storm Watch Weather App
 
-App Description:  Look Up Weather Conditions In Cities Across The Globe 
+APP Description:  Look Up Weather Conditions In Cities Across The Globe 
+
+API: Open Weather Map - https://openweathermap.org/api
 
 API SNIPPETT ```{
     "coord": {

@@ -8,9 +8,7 @@ const fetchWeather = (dataInput) => {
       return res.json()
     })
     .then((resJSON) => {
-      // console.log(resJSON);
       renderList(resJSON)
-   
     })
     .catch((err) => {
 
@@ -19,7 +17,7 @@ const fetchWeather = (dataInput) => {
 }
 //creating the HTML elements and rendering them on the page
 const renderList = (resJSON) => {
-  getCoord(resJSON) 
+  getCoord(resJSON)
   let searchResults = resJSON;
   // console.log(searchResults)
   //Selecting location class adding Location and country
@@ -35,8 +33,7 @@ const renderList = (resJSON) => {
 
   locationDiv.appendChild(nameTag)
 
-
-  //################ Array and For Loop for Temps #################################################################
+  //################ Array/For Loop for Temps #################################################################
   const tempTag = document.createElement('UL');
   locationDiv.appendChild(tempTag)
 
@@ -92,24 +89,19 @@ const getCoord = (resJSON) => {
   let lon = resJSON.coord.lon
   lat = Number(lat.toFixed(2).value)
   lon = Number(lon.toFixed(2).value)
-  
-  // console.log(typeof lat, lat, typeof lon, lon)
-  
+
   const fetchForecast = (lat, lon) => {
-    
+
     const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=59.91&lon=10.75&units=imperial&exclude=minutely.hourly,current&appid=b0ae55b6c429d2b3beee108ecdbd660e`
-    // console.log("making our request")
-    
-    foreCastDiv.innerHTML = "";  // !Clearing the div close to the where the fetch is happening
+
+    foreCastDiv.innerHTML = ""; // !Clearing the div close to the where the fetch is happening
 
     fetch(forecastUrl)
       .then((res) => {
         return res.json()
       })
       .then((resJSON) => {
-        // console.log(resJSON);
         renderDaily(resJSON)
-
       })
       .catch((err) => {
         console.error(`ERROR: ${err}`)
@@ -120,19 +112,17 @@ const getCoord = (resJSON) => {
 //Rendering the Extended Daily forecast
 const renderDaily = (resJSON) => {
 
-  // const foreCastDiv = document.querySelector(".forecast");
-  //   // todo foreCastDiv.innerHTML = "";
-
   const extendP = document.createElement("h2")
   extendP.classList.add("sevenDay")
   extendP.innerText = `Seven Day Extended Forecast`
   extendP.style.fontSize = "34px"
-  
+
   document.querySelector(".forecast").appendChild(extendP)
 
   //Setting search results to a varialbe 
   const dailySearch = resJSON.daily
 
+  // ! Where i got the code for the date converion
   // const unixTime = dailySearch[7].dt
   // const date = new Date(unixTime*1000);
   // console.log(date.toLocaleDateString("en-US"));
@@ -153,7 +143,7 @@ const renderDaily = (resJSON) => {
     const desc = dailySearch[i].weather[0].description
     const icon = dailySearch[i].weather[0].icon
     const uvi = dailySearch[i].uvi
- 
+
     if (i !== 0) {
       // ?Creating a DIV for each day in the weekly forecast
 
@@ -181,7 +171,6 @@ const renderDaily = (resJSON) => {
       const foreCastElem2 = document.createElement("li")
       foreCastElem2.innerText = `Outlook: ${main} - ${desc}  ${icon}`
       forecastUL2.appendChild(foreCastElem2)
-
 
       const forecastUL3 = document.createElement('UL')
 
