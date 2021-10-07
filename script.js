@@ -31,6 +31,7 @@ const renderList = (resJSON) => {
   nameTag.style.backgroundColor = "gold"
   nameTag.style.borderBlockStyle = "solid"
   nameTag.style.fontSize = "20px"
+
 locationDiv.appendChild(nameTag)
   
 
@@ -157,6 +158,7 @@ const getCoord = (resJSON) => {
       foreCastDiv.appendChild(newForeCastDiv)
 
       const foreP = document.createElement("p")
+      foreP.classList.add("day")
       foreP.innerText = `${day}`
       newForeCastDiv.appendChild(foreP)
 
@@ -164,7 +166,7 @@ const getCoord = (resJSON) => {
       forecastUL.classList.add("foreCastUl")
       newForeCastDiv.appendChild(forecastUL)
       const foreCastElem = document.createElement("li")
-      foreCastElem.innerText = `Temp is: ${temp},    Feels Like: ${feels},    Min: ${min},   Max: ${max} `
+      foreCastElem.innerText = `Temp is: ${temp},      Min: ${min},   Max: ${max} `
       forecastUL.appendChild(foreCastElem)
 
       const forecastUL2 = document.createElement('UL')
