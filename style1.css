@@ -148,6 +148,9 @@ h1 {
 }
 
 .newForeCastDiv {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: rgb(207, 221, 250);
   width: max-content;
   margin: 0 auto;
