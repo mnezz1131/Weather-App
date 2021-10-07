@@ -1,4 +1,8 @@
-//Creating the fetch request for getting data from OpenWeather API 
+//Creating the fetch request for getting data from OpenWeather API
+AOS.init({
+  duration: 1800,
+})
+
 const fetchWeather = (dataInput) => {
   const ApiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${dataInput}&appid=b0ae55b6c429d2b3beee108ecdbd660e`
   console.log("making our request")

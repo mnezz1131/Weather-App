@@ -5,41 +5,40 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Forum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
 
 </head>
 
 <body>
+  <div class="navbar">
+    <a href="#" class="logo">Storm Watch</a>
+    <ul class="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#facts">Weather Facts</a></li>
+    </ul>
+  </div>
+  <div class="banner-area" >
+    <h1 data-aos="fade-up">Storm Watch Weather</h1>
 
-  <header>
+  </div>
 
-    <nav>
-      <ul class="nav_links">
-        <li><a href="#">Storm Watch</a></li>
-
-      </ul>
-    </nav>
-
-  </header>
-
-  <section class="banner-area">
-    <!-- <h1>Storm Watch</h1> -->
-  </section>
-  <hr>
   <section class="content-area">
-    <div class="wrapper">
+    <div class="wrapper" id="search">
 
-      <Main class="main">
-        <br>
-        <h1>Welcome To The Storm Watch Weather App</h1>
-        <input type="search" id="LctnInpt" name="LctnInpt" placeholder="Search For Location">
-        <br>
-        <button id="srchBttn">Search</button>
-
+      <Main class="main" id="main">
+        <h2 class="h2-area">Search For A City</h2>
+        <div class=search-area>
+          <input type="search" id="LctnInpt" name="LctnInpt" placeholder="Search For Location">
+          <br>
+          <button id="srchBttn">Search</button>
+        </div>
         <section class>
           <div class="location">
 
@@ -48,18 +47,61 @@
 
 
         <section class>
-          <div class="forecast">
+          <div class="forecast" id="forecast">
 
           </div>
         </section>
 
+        <section class>
+          <div class="facts-area" id="facts">
+            <h2 id="weatherh2">Weather Facts</h2>
+            <div class="text-part">
+              <p><a href="https://en.wikipedia.org/wiki/Temperature" target="_blank">Temperature</a>is the degree or
+                intensity of heat present in a substance or object, especially as expressed according to a comparative
+                scale and shown by a thermometer or perceived by touch.
+                <p>
+                  <a href="https://en.wikipedia.org/wiki/Kelvin" target="_blank">Kelvin</a>scale is an absolute
+                  temperature scale (obtained by shifting the Celsius scale by −273.15° so that absolute zero coincides
+                  with 0 K), is recognized as the international standard for scientific temperature measurement.
+                  <p><a href="https://en.wikipedia.org/wiki/Celsius" target="_blank">Celsuis</a>also called centigrade,
+                    scale based on 0° for the freezing point of water and 100° for the boiling point of water. Invented
+                    in 1742 by the Swedish astronomer Anders Celsius, it is sometimes called the centigrade scale
+                    because of the 100-degree interval between the defined points.</p>
+                  <p><a href="https://en.wikipedia.org/wiki/Fahrenheit" target="_blank">Fahrenheit</a>is a temperature
+                    scale, used primarily in the United States, in which the freezing point of water is 32 degrees and
+                    the boiling point 212 degrees. Temperatures in this scale are denoted by °F or, in scientific usage,
+                    F alone.</p>
+                </p>
+                <hr>
+                <p><a href="https://en.wikipedia.org/wiki/Humidity" target="_blank">Humidity</a>is a quantity
+                  representing the amount of water vapor in the atmosphere or in a gas.</p>
+                <p><a href="https://en.wikipedia.org/wiki/Dew_point" target="_blank">Dew Point</a>is the atmospheric
+                  temperature (varying according to pressure and humidity) below which water droplets begin to condense
+                  and dew can form.</p>
+                <p><a href="https://en.wikipedia.org/wiki/Atmospheric_pressure" target="_blank">Baromtric
+                    pressure</a>also known as atmospheric pressure, is the pressure exerted by the weight of the
+                  atmosphere, which at sea level has a mean value of 101,325 pascals (roughly 14.6959 pounds per square
+                  inch).</p>
+                <hr>
+                <p><a href="https://uni.edu/storm/Wind%20Direction%20slide.pdf" target="_blank">Wind Degree</a>is the
+                  direction the wind is blowing and is reported as the orientation from where the wind is blowing. .</p>
+                <p><a href="https://en.wikipedia.org/wiki/Wind_gust" target="_blank">Wind Gust</a>is a sudden, brief
+                  increase in speed of the wind. According to U.S. weather observing practice, gusts are reported when
+                  the peak wind speed reaches at least 16 knots and the variation in wind speed between the peaks and
+                  lulls is at least 9 knots. The duration of a gust is usually less than 20 seconds.</p>
+                <p><a href="https://en.wikipedia.org/wiki/Wind_speed" target="_blank">Wind Speed</a>s a fundamental
+                  atmospheric quantity caused by air moving from high to low pressure, usually due to changes in
+                  temperature.</p>
+
+              </p>
+            </div>
+        </section>
 
       </Main>
 
     </div>
 
   </section>
-
 
 
 </body>
