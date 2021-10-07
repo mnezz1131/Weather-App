@@ -1,6 +1,6 @@
 //Creating the fetch request for getting data from OpenWeather API
 AOS.init({
-  duration: 1800,
+  duration: 2000,
 })
 
 const fetchWeather = (dataInput) => {
