@@ -1,3 +1,5 @@
+/* font-family: 'Iceberg', cursive;
+font-family: 'Uncial Antiqua', cursive; */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -41,6 +43,12 @@ text-transform:uppercase ;
 letter-spacing: 1px;
 font-weight: bold;
 font-size: 35px;
+font-family: 'Uncial Antiqua', cursive;
+text-shadow:
+   -1px -1px 0 lightseagreen,
+    1px -1px 0 lightseagreen,
+    -1px 1px 0 lightseagreen,
+     1px 1px 0 lightseagreen;
 }
 
 a{
@@ -48,7 +56,13 @@ a{
   color: #000;
   text-decoration: none;
   text-transform: uppercase;
-  
+  font-family:'Times New Roman', Times, serif;
+
+  text-shadow:
+     -1px -1px 0 lightslategray,
+      1px -1px 0 lightslategray,
+      -1px 1px 0 lightslategray,
+       1px 1px 0 lightslategray;
 }
 a:hover{
   color:blue;
@@ -56,17 +70,12 @@ a:hover{
 .banner-area{
   position: relative;
   background-image: url(./images/storm1.jpg);
-width: 100%;
-height: 100vh;
-background-repeat: no-repeat;
-background-size: cover;
-
-
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.banner-area h1{
 
-  font-size: 55px;
-}
 button {
   margin-top: 10px;
   padding: 9px 25px;
@@ -76,14 +85,16 @@ button {
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  font-family: 'Audiowide', cursive;
+  font-family:'Times New Roman', Times, serif;
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
+  margin-left: 15px;
+
 }
 input{
   font-size: 25px;
-  font-family: 'Audiowide', cursive;
+  font-family:'Times New Roman', Times, serif;
   text-align: center;
 }
 button:hover {
@@ -101,21 +112,21 @@ button:hover {
   flex-direction: row;
   width: 100%;
   height:50px;
-background:rgb(127, 160, 209)
-}
+background:rgb(127, 160, 209);
+margin-bottom: 10px;
 
+}
 
 h1 {
   /* margin-bottom: 10px; */
-  font-family: 'Audiowide', cursive;
-font-size: 40px;
+  font-family: 'Uncial Antiqua', cursive;
+font-size: 150px;
 padding-top:25%;
 text-shadow:
-   -1px -1px 0 grey,
-    1px -1px 0 grey,
-    -1px 1px 0 grey,
-     1px 1px 0 grey;
-  
+   -1px -1px 0 lightseagreen,
+    1px -1px 0 lightseagreen,
+    -1px 1px 0 lightseagreen,
+     1px 1px 0 lightseagreen;
 }
 .location {
   background-color: rgb(207, 221, 250);
@@ -131,7 +142,10 @@ border-radius: 15%;
 margin-top:20px; 
 border-radius: 15%;
 padding-bottom: 15px;
+
 }
+
+
 ul{
  list-style-type: none;
  padding-top: 10px;
@@ -139,12 +153,12 @@ ul{
 
 }
 .day{
-background-color: gold;
+background-color: rgb(158, 201, 201);
 border-block-style: solid;
 }
 
 
-.contact-area{
+.facts-area{
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -153,7 +167,7 @@ border-block-style: solid;
   flex-direction: row;
   width: 100%;
   height:500px;
-background:lightgray
+
 }
 
 .text-part{
@@ -162,9 +176,19 @@ background:lightgray
   font-size: 24px;
   line-height: 50px;
 }
-.h2-area{
+h2{
   font-size:50px;
-  background:rgb(127, 160, 209)
+  font-family: 'Uncial Antiqua', cursive;
+  text-shadow:
+   -1px -1px 0 lightseagreen,
+    1px -1px 0 lightseagreen,
+    -1px 1px 0 lightseagreen,
+     1px 1px 0 lightseagreen;
+
+}
+.h2-area{
+  
+  background:rgb(127, 160, 209);
 }
 p{
   font-size: 24px;

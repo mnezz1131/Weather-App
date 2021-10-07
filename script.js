@@ -29,9 +29,9 @@ const renderList = (resJSON) => {
 
   const nameTag = document.createElement("p")
   nameTag.innerText = `${searchResults.name}, ${searchResults.sys.country}`
-  nameTag.style.backgroundColor = "gold"
+  nameTag.style.backgroundColor = " rgb(158, 201, 201)"
   nameTag.style.borderBlockStyle = "solid"
-  nameTag.style.fontSize = "20px"
+  nameTag.style.fontSize = "30px"
 
   locationDiv.appendChild(nameTag)
 
@@ -123,7 +123,7 @@ const renderDaily = (resJSON) => {
   // const foreCastDiv = document.querySelector(".forecast");
   //   // todo foreCastDiv.innerHTML = "";
 
-  const extendP = document.createElement("p")
+  const extendP = document.createElement("h2")
   extendP.classList.add("sevenDay")
   extendP.innerText = `Seven Day Extended Forecast`
   extendP.style.fontSize = "34px"
@@ -142,10 +142,10 @@ const renderDaily = (resJSON) => {
     console.log(dailySearch[i])
 
     const day = new Date(dailySearch[i].dt * 1000).toLocaleDateString("en-us")
-    const temp = dailySearch[i].temp.day
+    const temp = Math.trunc(dailySearch[i].temp.day)
     const feels = dailySearch[i].feels_like.day
-    const min = dailySearch[i].temp.min
-    const max = dailySearch[i].temp.max
+    const min = Math.trunc(dailySearch[i].temp.min)
+    const max = Math.trunc(dailySearch[i].temp.max)
     const clouds = dailySearch[i].clouds
     const dew = dailySearch[i].dew_point
     const humid = dailySearch[i].humidity
@@ -172,7 +172,7 @@ const renderDaily = (resJSON) => {
       forecastUL.classList.add("foreCastUl")
       newForeCastDiv.appendChild(forecastUL)
       const foreCastElem = document.createElement("li")
-      foreCastElem.innerText = `Temp is: ${temp},      Min: ${min},   Max: ${max} `
+      foreCastElem.innerText = `Temp is: ${temp}\u00B0F,      Min: ${min}\u00B0F,   Max: ${max}\u00B0F `
       forecastUL.appendChild(foreCastElem)
 
       const forecastUL2 = document.createElement('UL')
