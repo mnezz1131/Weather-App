@@ -167,7 +167,6 @@ border-block-style: solid;
   flex-direction: row;
   width: 100%;
   height:500px;
-
 }
 
 .text-part{
@@ -206,7 +205,40 @@ html{
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 2) {
 
+    .logo{
+      /* flex: 1 1 auto; */
+    margin-left: 10%;
+    text-transform:uppercase ;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Uncial Antiqua', cursive;
+    text-shadow:
+       -1px -1px 0 lightseagreen,
+        1px -1px 0 lightseagreen,
+        -1px 1px 0 lightseagreen,
+         1px 1px 0 lightseagreen;
+    }
+    li{
+      font-size: 20px;
+     }
+     
+     h1 {
+      /* margin-bottom: 10px; */
+      font-family: 'Uncial Antiqua', cursive;
+    font-size: 85px;
+    padding-top:25%;
+    text-shadow:
+       -1px -1px 0 lightseagreen,
+        1px -1px 0 lightseagreen,
+        -1px 1px 0 lightseagreen,
+         1px 1px 0 lightseagreen;
+    }
+
+
 }
+
+
 
 
 /* Portrait and Landscape */
@@ -214,5 +246,34 @@ html{
   and (min-device-width: 414px) 
   and (max-device-width: 736px) 
   and (-webkit-min-device-pixel-ratio: 3) { 
+    .logo{
+      /* flex: 1 1 auto; */
+    margin-left: 10%;
+    text-transform:uppercase ;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Uncial Antiqua', cursive;
+    text-shadow:
+       -1px -1px 0 lightseagreen,
+        1px -1px 0 lightseagreen,
+        -1px 1px 0 lightseagreen,
+         1px 1px 0 lightseagreen;
+    }
+    li{
+      font-size: 15px;
+     }
+
+     h1 {
+      /* margin-bottom: 10px; */
+      font-family: 'Uncial Antiqua', cursive;
+    font-size: 5px;
+    padding-top:25%;
+    text-shadow:
+       -1px -1px 0 lightseagreen,
+        1px -1px 0 lightseagreen,
+        -1px 1px 0 lightseagreen,
+         1px 1px 0 lightseagreen;
+    }
 
 }
