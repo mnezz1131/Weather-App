@@ -137,6 +137,7 @@ const renderDaily = (resJSON) => {
   //https://www.codegrepper.com/code-examples/javascript/convert+date+to+unix+timestamp+javascript
 
   for (i = 0; i < dailySearch.length; i++) {
+    console.log(dailySearch)
     const day = new Date(dailySearch[i].dt * 1000).toLocaleDateString("en-us")
     const temp = Math.trunc(dailySearch[i].temp.day)
     const feels = dailySearch[i].feels_like.day
@@ -166,7 +167,7 @@ const renderDaily = (resJSON) => {
       forecastUL.classList.add("foreCastUl")
       newForeCastDiv.appendChild(forecastUL)
       const foreCastElem = document.createElement("li")
-      foreCastElem.innerText = `Temp is: ${temp}\u00B0F,    Min: ${min}\u00B0F,   Max: ${max}\u00B0F `
+      foreCastElem.innerText = `Temp is: ${temp}\u00B0F,      Min: ${min}\u00B0F,   Max: ${max}\u00B0F `
       forecastUL.appendChild(foreCastElem)
 
       const forecastUL2 = document.createElement('UL')
@@ -174,11 +175,11 @@ const renderDaily = (resJSON) => {
 
       const foreCastElem2 = document.createElement("li")
       let iconImg = document.createElement("img")
-      // iconImg.setAttribute('src', `./icons/${icon}.png`)
-      iconImg.setAttribute('src', "http://openweathermap.org/img/w/" + icon + ".png")
-      foreCastElem2.innerText = `Outlook: ${main} - ${desc}  ${iconImg}`
-
+      iconImg.setAttribute('src', `./icons/${icon}.png`)
+      // iconImg.setAttribute('src', "http://openweathermap.org/img/w/" + icon + ".png")
       forecastUL2.appendChild(iconImg)
+      foreCastElem2.innerText = `Outlook: ${main} - ${desc}  `
+
       forecastUL2.appendChild(foreCastElem2)
       const forecastUL3 = document.createElement('UL')
 
