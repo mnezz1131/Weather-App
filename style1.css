@@ -156,7 +156,10 @@ ul{
 background-color: rgb(158, 201, 201);
 border-block-style: solid;
 }
-
+#forecast{
+  margin-top:25px;
+  background-color: gainsboro;
+}
 
 .facts-area{
   position: relative;
@@ -167,14 +170,18 @@ border-block-style: solid;
   flex-direction: row;
   width: 100%;
   height:500px;
+  margin-top:15px;
+}
+#facts{
+  font-size: 16px;
+  line-height: 40px;
+}
+.text-part{
+ width:90%;
+  height:100%;
+
 }
 
-.text-part{
- width:65%;
-  height:80%;
-  font-size: 24px;
-  line-height: 50px;
-}
 h2{
   font-size:50px;
   font-family: 'Uncial Antiqua', cursive;
@@ -191,8 +198,7 @@ h2{
 }
 p{
   font-size: 24px;
-  line-height: 50px;
-
+ 
 }
 
 html{
@@ -267,7 +273,7 @@ html{
      h1 {
       /* margin-bottom: 10px; */
       font-family: 'Uncial Antiqua', cursive;
-    font-size: 5px;
+    font-size: 50px;
     padding-top:25%;
     text-shadow:
        -1px -1px 0 lightseagreen,
@@ -275,5 +281,17 @@ html{
         -1px 1px 0 lightseagreen,
          1px 1px 0 lightseagreen;
     }
-
+    h2{
+      font-size:40px;
+      font-family: 'Uncial Antiqua', cursive;
+      text-shadow:
+       -1px -1px 0 lightseagreen,
+        1px -1px 0 lightseagreen,
+        -1px 1px 0 lightseagreen,
+         1px 1px 0 lightseagreen;
+    
+    }
+p{
+  font-size: 16px;
+}
 }

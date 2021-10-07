@@ -153,7 +153,7 @@ const renderDaily = (resJSON) => {
     const desc = dailySearch[i].weather[0].description
     const icon = dailySearch[i].weather[0].icon
     const uvi = dailySearch[i].uvi
-
+ 
     if (i !== 0) {
       // ?Creating a DIV for each day in the weekly forecast
 
