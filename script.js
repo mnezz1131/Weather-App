@@ -137,8 +137,6 @@ const renderDaily = (resJSON) => {
   //https://www.codegrepper.com/code-examples/javascript/convert+date+to+unix+timestamp+javascript
 
   for (i = 0; i < dailySearch.length; i++) {
-    console.log(dailySearch[i])
-
     const day = new Date(dailySearch[i].dt * 1000).toLocaleDateString("en-us")
     const temp = Math.trunc(dailySearch[i].temp.day)
     const feels = dailySearch[i].feels_like.day
@@ -149,16 +147,14 @@ const renderDaily = (resJSON) => {
     const humid = dailySearch[i].humidity
     const main = dailySearch[i].weather[0].main
     const desc = dailySearch[i].weather[0].description
-    const icon = dailySearch[i].weather[0].icon
     const uvi = dailySearch[i].uvi
+    const icon = dailySearch[i].weather[0].icon
 
     if (i !== 0) {
       // ?Creating a DIV for each day in the weekly forecast
 
       const newForeCastDiv = document.createElement("DIV")
-
       newForeCastDiv.classList.add("newForeCastDiv")
-
       foreCastDiv.appendChild(newForeCastDiv)
 
       const foreP = document.createElement("p")
@@ -170,16 +166,20 @@ const renderDaily = (resJSON) => {
       forecastUL.classList.add("foreCastUl")
       newForeCastDiv.appendChild(forecastUL)
       const foreCastElem = document.createElement("li")
-      foreCastElem.innerText = `Temp is: ${temp}\u00B0F,      Min: ${min}\u00B0F,   Max: ${max}\u00B0F `
+      foreCastElem.innerText = `Temp is: ${temp}\u00B0F,    Min: ${min}\u00B0F,   Max: ${max}\u00B0F `
       forecastUL.appendChild(foreCastElem)
 
       const forecastUL2 = document.createElement('UL')
-
       newForeCastDiv.appendChild(forecastUL2)
-      const foreCastElem2 = document.createElement("li")
-      foreCastElem2.innerText = `Outlook: ${main} - ${desc}  ${icon}`
-      forecastUL2.appendChild(foreCastElem2)
 
+      const foreCastElem2 = document.createElement("li")
+      let iconImg = document.createElement("img")
+      // iconImg.setAttribute('src', `./icons/${icon}.png`)
+      iconImg.setAttribute('src', "http://openweathermap.org/img/w/" + icon + ".png")
+      foreCastElem2.innerText = `Outlook: ${main} - ${desc}  ${iconImg}`
+
+      forecastUL2.appendChild(iconImg)
+      forecastUL2.appendChild(foreCastElem2)
       const forecastUL3 = document.createElement('UL')
 
       newForeCastDiv.appendChild(forecastUL3)
@@ -207,9 +207,7 @@ button.addEventListener("click", (evObj) => {
     alert("Please enter a City to search for!")
     dataInput.focus();
     return false
-}
+}  
 
-  
-  console.log(`My data Input = ${dataInput}`)
   fetchWeather(dataInput);
 })
