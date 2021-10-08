@@ -172,6 +172,8 @@ const renderDaily = (resJSON) => {
 
       const forecastUL2 = document.createElement('UL')
       newForeCastDiv.appendChild(forecastUL2)
+    // Researched getting the icons to appear here
+    // https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
 
       const foreCastElem2 = document.createElement("li")
       let iconImg = document.createElement("img")
